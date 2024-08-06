@@ -6,7 +6,7 @@ Característica: Inicio de Sesión en OrangeHRM
   PARA realizar la gestión de recursos humanos
 
   Antecedentes: Navegar a la pagina de Inicio de Sesión
-    Dado que Maria esta en la pagina de inicio de sesion de OrangeHRM
+    Dado que Lizeth esta en la pagina de inicio de sesion de OrangeHRM
 
   @logIn @criticalPath
   Escenario: Inicio de sesión exitoso
@@ -15,21 +15,21 @@ Característica: Inicio de Sesión en OrangeHRM
 
   @logIn @alternatePath
   Esquema del escenario: Inicio de sesión fallido con credenciales incorrectas
-    Cuando se autentica en el sistema <username> <password>
+    Cuando se autentica en el sistema <usuario> <contrasenia>
     Entonces deberia visualizar la alerta con el mensaje Invalid credentials
     Y permanecer en la pagina de Inicio de Sesion
     Ejemplos:
-      | username | password |
-      | Root     | admin123 |
-      | Admin    | admin124 |
+      | usuario | contrasenia |
+      | Root    | admin123    |
+      | Admin   | admin124    |
 
   @logIn @alternatePath
   Esquema del escenario: Inicio de sesión fallido con campos vacíos
-    Cuando se autentica en el sistema <username> <password>
+    Cuando se autentica en el sistema <usuario> <contrasenia>
     Entonces deberia visualizar la alerta de campo requerido
     Y permanecer en la pagina de Inicio de Sesion
     Ejemplos:
-      | username | password |
-      | Root     | N/a      |
-      | N/a      | admin124 |
-      | N/a      | N/a      |
+      | usuario | contrasenia |
+      | Root    | N/a         |
+      | N/a     | admin124    |
+      | N/a     | N/a         |
