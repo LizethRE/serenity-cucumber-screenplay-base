@@ -3,7 +3,7 @@ package com.base.certification.stepdefinitions;
 import com.base.certification.model.User;
 import com.base.certification.questions.TheAlert;
 import com.base.certification.questions.TheDashboardPageTitle;
-import com.base.certification.questions.TheLogInPageTitle;
+import com.base.certification.questions.TheLogInPage;
 import com.base.certification.questions.TheRequiredField;
 import com.base.certification.tasks.LogIn;
 import com.base.certification.tasks.NavigateTo;
@@ -45,7 +45,7 @@ public class LogInStepDefinitions {
 
     @Entonces("permanecer en la pagina de Inicio de Sesion")
     public void permanecerEnLaPaginaDeInicioDeSesion() {
-        OnStage.theActorInTheSpotlight().should(seeThat(TheLogInPageTitle.isVisible()));
+        OnStage.theActorInTheSpotlight().should(seeThat(TheLogInPage.isVisible()));
     }
 
     @Entonces("deberia visualizar la alerta de campo requerido")
