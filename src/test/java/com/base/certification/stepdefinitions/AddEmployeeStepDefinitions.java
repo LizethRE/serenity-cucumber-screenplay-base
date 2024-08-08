@@ -14,7 +14,7 @@ import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 
-import static com.base.certification.abilities.JsonReader.getData;
+import static com.base.certification.abilities.JsonReader.getJsonData;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -34,9 +34,9 @@ public class AddEmployeeStepDefinitions {
         OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));
 
         OnStage.theActorInTheSpotlight().attemptsTo(FillOutNewEmployee.with(Employee.builder()
-                .firstName(getData((rowNumber - 1), "firstName"))
-                .middleName(getData((rowNumber - 1), "middleName"))
-                .lastName(getData((rowNumber - 1), "lastName"))
+                .firstName(getJsonData((rowNumber - 1), "firstName"))
+                .middleName(getJsonData((rowNumber - 1), "middleName"))
+                .lastName(getJsonData((rowNumber - 1), "lastName"))
                 .build()
         ));
     }
@@ -52,7 +52,7 @@ public class AddEmployeeStepDefinitions {
 
         OnStage.theActorInTheSpotlight().should(seeThat(TheEditEmployeePage.isVisible()));
         OnStage.theActorInTheSpotlight().should(seeThat(TheEmployeeFullName.text(), equalTo(
-                getData((rowNumber - 1), "firstName") + " " + getData((rowNumber - 1), "lastName")
+                getJsonData((rowNumber - 1), "firstName") + " " + getJsonData((rowNumber - 1), "lastName")
         )));
     }
 }

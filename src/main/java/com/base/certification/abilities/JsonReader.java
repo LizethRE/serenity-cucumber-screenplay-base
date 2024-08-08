@@ -23,7 +23,7 @@ public class JsonReader implements Ability {
         }
     }
 
-    public static String getData(int index, String key) {
+    public static String getJsonData(int index, String key) {
         return jsonNode.get(index).get(key).asText();
     }
 

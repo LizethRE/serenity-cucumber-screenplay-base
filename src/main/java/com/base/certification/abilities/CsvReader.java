@@ -26,7 +26,7 @@ public class CsvReader implements Ability {
         }
     }
 
-    public static String getCell(int rowNumber, int columnNumber) {
+    public static String getCsvData(int rowNumber, int columnNumber) {
         return data.get(rowNumber)[columnNumber];
     }
 
