@@ -24,13 +24,15 @@ ext {
     JUNIT_VINTAGE_ENGINE_VERSION = '5.10.2'
     LOGBACK_CLASSIC_VERSION = '1.2.10'
     LOMBOK_VERSION = '1.18.32'
+    OPEN_CSV_VERSION = '5.7.1'
 }
 
 dependencies {
     implementation "net.serenity-bdd:serenity-core:${SERENITY_VERSION}",
             "net.serenity-bdd:serenity-cucumber:${SERENITY_VERSION}",
             "net.serenity-bdd:serenity-screenplay:${SERENITY_VERSION}",
-            "ch.qos.logback:logback-classic:${LOGBACK_CLASSIC_VERSION}"
+            "ch.qos.logback:logback-classic:${LOGBACK_CLASSIC_VERSION}",
+            "com.opencsv:opencsv:${OPEN_CSV_VERSION}"
 
     testImplementation "org.junit.platform:junit-platform-launcher:${JUNIT_PLATFORM_VERSION}",
             "io.cucumber:cucumber-junit-platform-engine:${CUCUMBER_JUNIT_PLATFORM_VERSION}",
