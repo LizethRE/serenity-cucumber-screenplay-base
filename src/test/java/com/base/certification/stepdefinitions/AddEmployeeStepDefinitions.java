@@ -1,6 +1,6 @@
 package com.base.certification.stepdefinitions;
 
-import com.base.certification.abilities.ReadCsv;
+import com.base.certification.abilities.JsonReader;
 import com.base.certification.model.Employee;
 import com.base.certification.questions.TheEditEmployeePage;
 import com.base.certification.questions.TheEmployeeFullName;
@@ -14,7 +14,7 @@ import io.cucumber.java.es.Entonces;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 
-import static com.base.certification.abilities.ReadCsv.getCell;
+import static com.base.certification.abilities.JsonReader.getData;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.equalTo;
 
@@ -31,13 +31,12 @@ public class AddEmployeeStepDefinitions {
 
     @Cuando("diligencia el formulario de creacion de empleado {int}")
     public void diligenciaElFormularioDeCreacionDeEmpleado(int rowNumber) {
-        OnStage.theActorInTheSpotlight().can(ReadCsv.from("src/test/resources/data/employees.csv"));
+        OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));
 
         OnStage.theActorInTheSpotlight().attemptsTo(FillOutNewEmployee.with(Employee.builder()
-                .firstName(getCell(rowNumber, 0).trim())
-                .middleName(getCell(rowNumber, 1).trim())
-                .lastName(getCell(rowNumber, 2).trim())
-                .createLogin(getCell(rowNumber, 3).trim())
+                .firstName(getData((rowNumber - 1), "firstName"))
+                .middleName(getData((rowNumber - 1), "middleName"))
+                .lastName(getData((rowNumber - 1), "lastName"))
                 .build()
         ));
     }
@@ -49,11 +48,11 @@ public class AddEmployeeStepDefinitions {
 
     @Entonces("ser redirigido a la pagina de editar informacion del nuevo empleado {int}")
     public void serRedirigidoAlaPaginaDeEditarInformacionDelNuevoEmpleado(int rowNumber) {
-        OnStage.theActorInTheSpotlight().can(ReadCsv.from("src/test/resources/data/employees.csv"));
+        OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));
 
         OnStage.theActorInTheSpotlight().should(seeThat(TheEditEmployeePage.isVisible()));
         OnStage.theActorInTheSpotlight().should(seeThat(TheEmployeeFullName.text(), equalTo(
-                getCell(rowNumber, 0).trim() + " " + getCell(rowNumber, 2).trim()
+                getData((rowNumber - 1), "firstName") + " " + getData((rowNumber - 1), "lastName")
         )));
     }
 }

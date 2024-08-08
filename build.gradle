@@ -25,6 +25,7 @@ ext {
     LOGBACK_CLASSIC_VERSION = '1.2.10'
     LOMBOK_VERSION = '1.18.32'
     OPEN_CSV_VERSION = '5.7.1'
+    JACKSON_DATABIND_VERSION = '2.16.1'
 }
 
 dependencies {
@@ -32,7 +33,8 @@ dependencies {
             "net.serenity-bdd:serenity-cucumber:${SERENITY_VERSION}",
             "net.serenity-bdd:serenity-screenplay:${SERENITY_VERSION}",
             "ch.qos.logback:logback-classic:${LOGBACK_CLASSIC_VERSION}",
-            "com.opencsv:opencsv:${OPEN_CSV_VERSION}"
+            "com.opencsv:opencsv:${OPEN_CSV_VERSION}",
+            "com.fasterxml.jackson.core:jackson-databind:${JACKSON_DATABIND_VERSION}"
 
     testImplementation "org.junit.platform:junit-platform-launcher:${JUNIT_PLATFORM_VERSION}",
             "io.cucumber:cucumber-junit-platform-engine:${CUCUMBER_JUNIT_PLATFORM_VERSION}",
