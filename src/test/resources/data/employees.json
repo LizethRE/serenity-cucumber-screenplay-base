@@ -26,5 +26,12 @@
     "lastName": "Hernández Rojas",
     "id": "",
     "createLogin": "Yes"
+  },
+  {
+    "firstName": "Pepito",
+    "middleName": "",
+    "lastName": "Pérez",
+    "id": "",
+    "createLogin": "Yes"
   }
 ]
