@@ -1,4 +1,4 @@
-# Proyecto Automatización Móvil
+# Proyecto Automatización Web
 Proyecto base para la automatización de pruebas de aplicaciones web utilizando Serenity BDD, Cucumber y el patrón Screenplay.
 
 ## Contenido
