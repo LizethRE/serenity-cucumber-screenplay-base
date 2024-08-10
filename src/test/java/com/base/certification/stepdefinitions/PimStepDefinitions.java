@@ -5,10 +5,7 @@ import com.base.certification.model.Employee;
 import com.base.certification.questions.TheEditEmployeePage;
 import com.base.certification.questions.TheEmployeeFullName;
 import com.base.certification.questions.ThereAreSearchResults;
-import com.base.certification.tasks.FillOutNewEmployee;
-import com.base.certification.tasks.GoTo;
-import com.base.certification.tasks.NavigateTo;
-import com.base.certification.tasks.SearchEmployeeByName;
+import com.base.certification.tasks.*;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -47,6 +44,16 @@ public class PimStepDefinitions {
         OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));
 
         OnStage.theActorInTheSpotlight().attemptsTo(SearchEmployeeByName.now(Employee.builder()
+                .firstName(getJsonData((rowNumber - 1), "firstName"))
+                .middleName(getJsonData((rowNumber - 1), "middleName"))
+                .lastName(getJsonData((rowNumber - 1), "lastName"))
+                .build()
+        ));
+    }
+
+    @Cuando("elimina el empleado {int}")
+    public void eliminaElEmpleado(int rowNumber) {
+        OnStage.theActorInTheSpotlight().attemptsTo(DeleteEmployeeByName.now(Employee.builder()
                 .firstName(getJsonData((rowNumber - 1), "firstName"))
                 .middleName(getJsonData((rowNumber - 1), "middleName"))
                 .lastName(getJsonData((rowNumber - 1), "lastName"))
