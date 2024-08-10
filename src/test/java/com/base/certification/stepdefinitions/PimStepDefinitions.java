@@ -60,6 +60,25 @@ public class PimStepDefinitions {
         ));
     }
 
+    @Cuando("edita su informacion {int} {int}")
+    public void editaSuInformacion(int rowNumber1, int rowNumber2) {
+        OnStage.theActorInTheSpotlight().attemptsTo(EditEmployee.now(
+                Employee
+                        .builder()
+                        .firstName(getJsonData((rowNumber1 - 1), "firstName"))
+                        .middleName(getJsonData((rowNumber1 - 1), "middleName"))
+                        .lastName(getJsonData((rowNumber1 - 1), "lastName"))
+                        .build(),
+                Employee
+                        .builder()
+                        .firstName(getJsonData((rowNumber2 - 1), "firstName"))
+                        .middleName(getJsonData((rowNumber2 - 1), "middleName"))
+                        .lastName(getJsonData((rowNumber2 - 1), "lastName"))
+                        .build()
+
+        ));
+    }
+
     @Entonces("ser redirigido a la pagina de editar informacion del nuevo empleado {int}")
     public void serRedirigidoAlaPaginaDeEditarInformacionDelNuevoEmpleado(int rowNumber) {
         OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));

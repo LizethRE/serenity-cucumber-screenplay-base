@@ -33,5 +33,12 @@
     "lastName": "Pérez",
     "id": "",
     "createLogin": "Yes"
+  },
+  {
+    "firstName": "Anita",
+    "middleName": "",
+    "lastName": "Gomez",
+    "id": "",
+    "createLogin": "No"
   }
 ]

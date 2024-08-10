@@ -20,6 +20,3 @@ Característica: Creación de nuevos empleados en el sistema de OrangeHRM
     Ejemplos:
       | id |
       | 1  |
-      | 2  |
-      | 3  |
-      | 4  |

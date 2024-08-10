@@ -15,4 +15,5 @@ public class CommonPage {
     public static final Target SEARCH_BUTTON = Target.the("Search button").locatedBy("//button[contains(., 'Search')]");
     public static final By DELETE_BUTTON = By.className("bi-trash");
     public static final Target YES_DELETE_BUTTON = Target.the("Yes, Delete button").locatedBy("//button[contains(.,'Yes, Delete')]");
+    public static final By EDIT_BUTTON = By.className("bi-pencil-fill");
 }
