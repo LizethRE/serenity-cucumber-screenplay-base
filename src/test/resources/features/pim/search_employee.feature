@@ -14,7 +14,7 @@ Característica: Busqueda de empleados en el sistema de OrangeHRM
   Esquema del escenario: Busqueda de empleado existente por nombre
     Dado que Lizeth esta en el modulo PIM
     Cuando busca un empleado por nombre <id>
-    Entonces deberia visualizar al empleado en los resultados <id>
+    Entonces deberia obtener resultados
     Ejemplos:
       | id |
       | 1  |

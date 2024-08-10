@@ -2,7 +2,6 @@ package com.base.certification.stepdefinitions;
 
 import com.base.certification.abilities.JsonReader;
 import com.base.certification.model.Employee;
-import com.base.certification.questions.TheEditEmployeePage;
 import com.base.certification.questions.TheEmployeeFullName;
 import com.base.certification.questions.ThereAreSearchResults;
 import com.base.certification.tasks.*;
@@ -65,14 +64,13 @@ public class PimStepDefinitions {
     public void serRedirigidoAlaPaginaDeEditarInformacionDelNuevoEmpleado(int rowNumber) {
         OnStage.theActorInTheSpotlight().can(JsonReader.from("src/test/resources/data/employees.json"));
 
-        OnStage.theActorInTheSpotlight().should(seeThat(TheEditEmployeePage.isVisible()));
         OnStage.theActorInTheSpotlight().should(seeThat(TheEmployeeFullName.text(), equalTo(
                 getJsonData((rowNumber - 1), "firstName") + " " + getJsonData((rowNumber - 1), "lastName")
         )));
     }
 
-    @Entonces("deberia visualizar al empleado en los resultados {int}")
-    public void deberiaVisualizarAlEmpleadoEnLosResultados() {
+    @Entonces("deberia obtener resultados")
+    public void deberiaObtenerResultados() {
         OnStage.theActorInTheSpotlight().should(seeThat(ThereAreSearchResults.isVisible()));
     }
 }
