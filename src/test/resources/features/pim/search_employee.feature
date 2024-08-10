@@ -13,8 +13,8 @@ Característica: Busqueda de empleados en el sistema de OrangeHRM
   @searchEmployee @criticalPath
   Esquema del escenario: Busqueda de empleado existente por nombre
     Dado que Lizeth esta en el modulo PIM
-    Cuando busca un empleado por ID <id>
-    Entonces deberia obtener resultados
+    Cuando busca un empleado por nombre <id>
+    Entonces deberia visualizar al empleado en los resultados <id>
     Ejemplos:
       | id |
       | 1  |
@@ -25,7 +25,7 @@ Característica: Busqueda de empleados en el sistema de OrangeHRM
   @searchEmployee @alternatePath
   Esquema del escenario: Busqueda de empleado no existente por nombre
     Dado que Lizeth esta en el modulo PIM
-    Cuando busca un empleado por ID <id>
+    Cuando busca un empleado por nombre <id>
     Entonces deberia visualizar el toast con el mensaje No Records Found
     Ejemplos:
       | id |
